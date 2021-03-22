@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title th:text="${title}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="script" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js">
+</head>
+<body>
+<header th:insert="shared/header.html :: header"/>
+
+<main class="container mt-5">
+    <h1 th:text="${title}"/>
+
+    <div th:each="article : ${articles}" class="alert alert-info mt-2">
+        <h3 th:text="${article.title}"/>
+        <p th:text="${article.annonce}"/>
+        <a th:href="'/blog/' + ${article.id}">Read more...</a>
+    </div>
+</main>
+
+<footer th:insert="shared/footer.html :: footer" />
+</body>
+</html>
